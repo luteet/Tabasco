@@ -1,0 +1,1 @@
+export default function splitText(){document.querySelectorAll(".split-text").forEach(t=>{new SplitType(t,{types:"words"})})}

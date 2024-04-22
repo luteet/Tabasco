@@ -1,0 +1,142 @@
+.services-block {	
+
+	@include _992 {
+		opacity: 0; visibility: hidden;
+		transform: translate3d(50%,0,0.04px);
+
+		text-align: end;
+
+		transition: opacity .5s, visibility .5s, transform .5s;
+
+		&.is-visible {
+			opacity: 1; visibility: visible;
+			transform: translate3d(0%,0,0.04px);
+		}
+		&.is-visible.is-hidden {
+			opacity: 0; visibility: hidden;
+			transform: translate3d(-50%,0,0.04px);
+		}
+	}
+
+	&:nth-child(-n + 9) &__title::after {
+		content: "0"counter(number);
+	}
+
+	// .services-block__inner
+
+	&__inner {
+		padding-top: max(var(--height-header),20vh);
+
+		text-align: center;
+
+		@include _992 {
+			max-width: 44.6875rem;
+			display: inline-block;
+		}
+
+	}
+
+	// .services-block__image
+
+	&__image {
+		img, iframe {
+			width: 11.5rem; height: 11.5rem;
+		}
+	}
+
+	// .services-block__title
+
+	&__title {
+		padding-top: 1.5rem;
+
+		text-align: start;
+
+		font-weight: 900;
+		font-size: 2rem;
+		line-height: 110%;
+		text-transform: uppercase;
+
+		@media (min-width: 375px) {
+			font-size: 2.4375rem;
+		}
+
+		display: flex;
+		align-items: flex-start;
+
+		gap: 0.5rem;
+		
+		&::after {
+			counter-increment: number;
+			content: "0"counter(number);
+
+			font-size: 1rem;
+			line-height: 140%;
+			text-transform: uppercase;
+			font-weight: 400;
+		}
+		
+
+		@include _992 {
+			position: absolute;
+			width: 1px; height: 1px;
+			margin: -1px; padding: 0;
+			border: 0;
+			
+			white-space: nowrap;
+			clip-path: inset(100%);
+			clip: rect(0 0 0 0);
+			overflow: hidden;
+		}
+	}
+
+	// .services-block__text
+
+	&__text {
+		text-align: start;
+
+		font-size: 1rem;
+		line-height: 150%;
+
+		padding-top: 1.5rem;
+
+		@include _992 {
+			padding-top: 3rem;
+
+			font-size: 1.25rem;
+		}
+
+		p:not(:first-child) {
+			padding-top: 1.25rem;
+		}
+	}
+
+	// .services-block__tags
+
+	&__tags {
+
+		padding-top: 1.5rem;
+		
+		@include _992 {
+			padding-top: 3rem;
+		}
+
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.5rem;
+
+		li {
+			padding: 0.625rem 1rem;
+			border: 0.0625rem solid #FFFFFF;
+			border-radius: 1.125rem;
+
+			font-size: 0.875rem;
+			line-height: 100%;
+			text-transform: uppercase;
+
+			&.is-accent {
+				background: var(--text-color);
+				color: var(--text-color-reverse);
+			}
+		}
+	}
+}

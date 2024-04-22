@@ -1,0 +1,20 @@
+@import 'mixin';
+@import 'vars';
+@import 'libs';
+@import 'null';
+@import 'global';
+@import 'font';
+@import 'form';
+//@import 'popup';
+
+@import 'components/header';
+@import 'components/main-background';
+@import 'components/button';
+
+@import 'pages/index/about-us';
+@import 'pages/index/services';
+@import 'components/services-block';
+@import 'pages/index/news';
+@import 'components/news-card';
+
+@import 'components/footer';

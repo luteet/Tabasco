@@ -1,0 +1,320 @@
+$fontSize: var(--logo-size,calc(var(--vw)*14));
+
+#console {
+	position: fixed;
+	right: 0; top: 0;
+	color: var(--text-color);
+	z-index: 100;
+}
+
+.main-background {
+
+	position: fixed;
+	left: 0; top: 0;
+	width: 100vw; height: 100svh;
+	z-index: 2;
+
+	@include _550 {
+		height: calc(var(--vh,1svh)*100);
+	}
+
+	display: flex;
+	align-items: flex-end;
+	justify-content: center;
+
+	perspective: 25rem;
+
+	overflow: hidden;
+
+	// .main-background__logo
+
+	&__logo {
+		font-size: $fontSize;
+		font-weight: 700;
+		line-height: 100%;
+		font-kerning: none;
+		text-transform: none;
+
+		position: relative;
+
+		opacity: 0;
+
+		transform-origin: left center;
+		min-width: 100vw;
+
+		span:nth-child(1) {
+			display: block;
+			color: transparent;
+			width: 100%;
+
+			
+			//padding: 0 0.31006ch;
+			
+		}
+
+		span:nth-child(2) {
+			position: absolute;
+			left: 0; bottom: 0;
+			width: 100%; height: 100%;
+			color: transparent;
+
+			opacity: var(--gradient-opacity,0);
+
+			&::before {
+				content: "\e900";
+				font-family: 'icomoon' !important;
+				speak: never;
+				font-style: normal;
+				font-weight: normal;
+				font-variant: normal;
+				text-transform: none;
+				line-height: 1;
+
+				font-size: $fontSize;
+
+				/* -webkit-font-smoothing: antialiased;
+				-moz-osx-font-smoothing: grayscale; */
+
+				display: block;
+				position: absolute;
+				left: 0%; top: 0;
+				min-width: 100vw;
+				//transform: translate(var(--x,0.475ch),0);
+				
+				background: var(--gradient);
+				background-size: var(--gradient-size,0) 100%;
+    			background-position: var(--gradient-animating,0) 0;
+				background-clip: text;
+				//animation: gradientAnimation 12s linear infinite;
+			}
+		}
+
+		span:nth-child(3) {
+
+			position: absolute;
+			left: 0; bottom: 0;
+			width: 100%; height: 100%;
+			color: transparent;
+
+			opacity: var(--logo-opacity,0);
+			
+			&::before {
+				content: "\e900";
+				font-family: 'icomoon' !important;
+				speak: never;
+				font-style: normal;
+				font-weight: normal;
+				font-variant: normal;
+				text-transform: none;
+				line-height: 1;
+
+				font-size: $fontSize;
+
+				/* -webkit-font-smoothing: antialiased;
+				-moz-osx-font-smoothing: grayscale; */
+
+				display: block;
+				position: absolute;
+				left: 0%; top: 0%;
+
+				//opacity: var(--accent-opacity,0);
+
+				color: var(--logo-bg-color,var(--accent));
+			}
+
+			&::after {
+				content: "\e901";
+				font-family: 'icomoon' !important;
+				speak: never;
+				font-style: normal;
+				font-weight: normal;
+				font-variant: normal;
+				text-transform: none;
+				line-height: 1;
+
+				font-size: $fontSize;
+				color: var(--text-color);
+
+				/* -webkit-font-smoothing: antialiased;
+				-moz-osx-font-smoothing: grayscale; */
+
+				display: block;
+				position: absolute;
+				left: 0%; top: 0%;
+
+				//opacity: var(--front-opacity,0);
+				
+			}
+		}
+
+		span:nth-child(5) {
+			position: absolute;
+			left: 0; bottom: 0;
+			width: 100%; height: 100%;
+			color: #171717;
+
+			display: none;
+			opacity: var(--last-opacity,1);
+
+			font-size: $fontSize;
+			
+			&::before {
+				content: "\e901";
+				font-family: 'icomoon' !important;
+				speak: never;
+				font-style: normal;
+				font-weight: normal;
+				font-variant: normal;
+				text-transform: none;
+				line-height: 1;
+
+				font-size: $fontSize;
+
+				/* -webkit-font-smoothing: antialiased;
+				-moz-osx-font-smoothing: grayscale; */
+
+				display: block;
+				position: absolute;
+				left: 0; top: 0;
+				
+			}
+
+			&::after {
+				content: "";
+				position: absolute;
+				right: 14.65%; top: 50%;
+				width: 0.72ch; height: 0.8ch;
+				transform: translate(0%,-55.8%);
+				@include _550 {
+					right: 15.5%;
+					width: 0.72ch; height: 0.77ch;
+					box-shadow: 0 -0.625rem 1.5625rem -0.3125rem var(--accent);
+				}
+
+				border-radius: 50%;
+				box-shadow: 0 -0.3125rem 0.9375rem -0.3125rem var(--accent);
+
+				opacity: var(--shadow-opacity,0);
+
+			}
+		}
+
+		display: grid;
+
+		> * {
+			grid-area: 1/1;
+		}
+
+		/* &.is-active-gradient span:nth-child(3) {
+			opacity: 0;
+		}
+
+		&.is-active-gradient span:nth-child(2) {
+			opacity: 1;
+		}
+
+		&.background-mode.is-active-gradient span:nth-child(3) {
+			opacity: 1;
+		}
+
+		&.background-mode.is-active-gradient span:nth-child(3)::after {
+			//color: #171717;
+			//opacity: 0.09;
+			opacity: 0.09;
+		}
+
+		&.background-mode.is-active-gradient span:nth-child(3)::before {
+			opacity: 0;
+			color: #FFF;
+		}
+
+		&.background-mode.is-active-gradient span:nth-child(2) {
+			opacity: 0;
+		}
+
+		&.background-mode-2.background-mode.is-active-gradient span:nth-child(3) {
+			opacity: 0;
+			transition: none;
+		}
+
+		&.background-mode-2.background-mode.is-active-gradient span:nth-child(5) {
+			opacity: 1;
+		} */
+
+
+		/* &.is-active-shadow span:nth-child(5)::after {
+			opacity: 1;
+		} */
+
+		/* &.background-mode-2.background-mode.is-active-gradient span:nth-child(3)::before {
+			opacity: 1;
+			color: #171717;
+			transition: none;
+		} */
+
+		/* &.background-mode-2 svg {
+			opacity: 1;
+		} */
+
+		svg {
+			position: absolute;
+			right: 14.35%; top: 50%;
+			width: 0.75ch; height: 0.75ch;
+			transform: translate(0%,-37%);
+			@include _550 {
+				right: 15.2%;
+				transform: translate(0%,-35%);
+			}
+			color: #171717;
+			z-index: -1;
+
+			opacity: 0;
+
+		}
+	}
+
+	// .main-background__line
+
+	&__line {
+		position: fixed;
+		left: 0; bottom: 0;
+		z-index: 3;
+		width: 100vw; height: 2.604167vw;
+		background: var(--gradient);
+		background-size: var(--gradient-size,0) 100%;
+    	background-position: var(--gradient-animating,0) 0;
+        
+
+		//transform: translate3d(0,100%,-0.01px);
+		transition: clip-path .5s;
+
+		clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0% 100%);
+
+		@include _550 {
+			top: 100%;
+		}
+
+		@include _992 {
+			height: 3.125rem;
+			transform: translate3d(0,-100%,0.03px);
+		}
+
+		&.is-visible {
+			//transform: translate3d(0,0%,0.03px);
+			clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+
+			/* @include _992 {
+				transform: translate3d(0,-100%,0.03px);
+			} */
+		}
+	}
+}
+
+/* @keyframes gradientAnimation {
+	0% {
+		background-position: 0 0; 
+	}
+	100% {
+		background-position: 12000px 0;
+	}
+} */

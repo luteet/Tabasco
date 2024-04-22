@@ -1,0 +1,149 @@
+.news-card {
+
+	border: 0.0938rem solid var(--text-color);
+	@media (min-width: 1700px) {
+		border: 0.0625rem solid var(--text-color);
+	}
+
+	/* transition: opacity .3s, visibility .3s;
+	opacity: 0; visibility: hidden;
+
+	&.is-visible {
+		opacity: 1; visibility: visible;
+	} */
+
+	@include _992 {
+		backdrop-filter: blur(15px);
+	}
+
+	// .news-card__image
+
+	&__image {
+
+		display: block;
+		position: relative;
+		@supports (aspect-ratio: 1) {
+			aspect-ratio: 1/1;
+		}
+
+		overflow: hidden;
+
+		@media (any-hover: hover) {
+			&:hover img {
+				transform: scale3d(1.1,1.1,1);
+			}
+		
+			&:active img {
+				transform: scale3d(1.05,1.05,1);
+			}
+		}
+
+		img {
+
+			width: 100%; height: auto;
+			transition: transform .3s;
+
+			@supports (aspect-ratio: 1) {
+				position: absolute;
+				left: 0; top: 0;
+				height: 100%;
+				object-fit: cover;
+			}
+		}
+	}
+
+	// .news-card__tags
+
+	&__tags {
+		padding: 1.5rem 1.5rem 0;
+
+		display: flex;
+		flex-wrap: wrap;
+		gap: 1rem;
+
+		a {
+			display: inline-block;
+			padding: 0.625rem 1rem;
+
+			color: var(--text-color);
+			font-size: 0.875rem;
+			line-height: 100%;
+			
+			border: 0.0938rem solid var(--text-color);
+			@media (min-width: 1700px) {
+				border: 0.0625rem solid var(--text-color);
+			}
+
+			border-radius: 2rem;
+			text-transform: uppercase;
+
+			@media (any-hover: hover) {
+
+				transition: background .2s, color .2s;
+
+				&:hover {
+					background: var(--text-color);
+					color: var(--text-color-reverse);
+				}
+			
+				&:active {
+					background: rgba(255, 255, 255, 0.7);
+					color: var(--text-color-reverse);
+				}
+			}
+		}
+	}
+
+	// .news-card__title
+
+	&__title {
+		a {
+			display: block;
+			padding: 1.5rem 1.5rem 0;
+
+			font-size: 1.5rem;
+			line-height: 150%;
+			text-transform: uppercase;
+			color: var(--text-color);
+
+			@media (any-hover: hover) {
+
+				transition: color .2s;
+
+				&:hover {
+					color: var(--accent);
+				}
+			
+				&:active {
+					color: var(--accent-active);
+				}
+			}
+		}
+	}
+
+	// .news-card__link
+
+	&__link {
+		display: block;
+		padding: 1rem 1.5rem 1.5rem;
+
+		color: var(--text-color);
+
+		@media (any-hover: hover) {
+			&:hover svg {
+				transform: translate3d(0.625rem,0,100px);
+				color: var(--accent);
+			}
+		
+			&:active svg {
+				transform: translate3d(0.4375rem,0,0.04px);
+				color: var(--accent-active);
+			}
+		}
+
+		svg {
+			width: 2rem; height: 2rem;
+			transition: transform .2s, color .2s;
+		}
+	}
+}

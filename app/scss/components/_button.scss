@@ -1,0 +1,45 @@
+.button {
+	cursor: pointer;
+
+	display: inline-flex;
+	align-items: center;
+	text-align: center;
+	gap: 0.75rem;
+	
+	padding: 1.125rem 1.5rem;
+
+	background: rgba(255,255,255,0.1);
+	border: 0.0938rem solid var(--text-color);
+
+	border-radius: 3rem;
+
+	color: var(--text-color);
+	font-size: 1.25rem;
+	line-height: 140%;
+	text-transform: uppercase;
+
+	@include _992 {
+		backdrop-filter: blur(25px);
+	}
+
+	@media (min-width: 1700px) {
+		border: 0.0625rem solid var(--text-color);
+	}
+
+	transition: background .3s, color .3s, border-color .3s;
+
+	@media (any-hover: hover) {
+		&:hover {
+			background: var(--text-color);
+			color: var(--text-color-reverse);
+		}
+	
+		&:active {
+			background: rgba(255,255,255,0.8);
+		}
+	}
+
+	svg {
+		width: 2rem; height: 2rem;
+	}
+}
