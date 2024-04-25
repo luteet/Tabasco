@@ -38,6 +38,7 @@
     "@studio-freight/lenis": "^1.0.42",
     "gsap": "^3.12.5",
     "simplebar": "^6.2.5",
-    "split-type": "^0.3.4"
+    "split-type": "^0.3.4",
+    "circletype.js": "^1.1.2"
   }
 }

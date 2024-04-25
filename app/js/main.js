@@ -1,6 +1,8 @@
-import animations from "./animations.js";
+
+import Popup from "./popup.js";
 import sliders from "./sliders.js";
 import splitText from "./split-text.js";
+import startAnimation from "./start-animation.js";
 
 const 
 	body = document.querySelector('body'),
@@ -19,6 +21,29 @@ imageAspectRatio.forEach(imageAspectRatio => {
 })
 
 // =-=-=-=-=-=-=-=-=-=- </image-aspect-ratio> -=-=-=-=-=-=-=-=-=-=-
+
+
+function convertToEmbedded(url) {
+    const youtubeRegex = /(?:https?:\/\/)?(?:www\.)?(?:youtube\.com\/(?:[^\/\n\s]+\/\S+\/|(?:v|e(?:mbed)?)\/|\S*?[?&]v=)|youtu\.be\/)([a-zA-Z0-9_-]{11})/;
+    const match = url.match(youtubeRegex);
+    
+    if (match && match[1]) {
+        const iframe = document.createElement('iframe');
+        iframe.width = "560";
+        iframe.height = "315";
+		iframe.src = `https://www.youtube.com/embed/${match[1]}?autoplay=1`;
+        iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
+        iframe.allowFullscreen = true;
+		iframe.setAttribute("allowfullscreen", "");
+        return iframe;
+    } else {
+        console.error('Неверная ссылка на YouTube видео');
+        return null;
+    }
+}
+
+
+
 
 
 
@@ -43,6 +68,22 @@ body.addEventListener('click', function (event) {
 	
 	// =-=-=-=-=-=-=-=-=-=-=-=- </menu-in-header> -=-=-=-=-=-=-=-=-=-=-=-=
 
+
+
+	// =-=-=-=-=-=-=-=-=-=-=-=- <single-video> -=-=-=-=-=-=-=-=-=-=-=-=
+	
+	const singleVideo = $(".single__video")
+	if(singleVideo) {
+	
+		if(singleVideo.dataset.url) {
+			singleVideo.innerHTML = "";
+			const iframe = convertToEmbedded(singleVideo.dataset.url);
+			singleVideo.append(iframe);
+		}
+	
+	}
+	
+	// =-=-=-=-=-=-=-=-=-=-=-=- </single-video> -=-=-=-=-=-=-=-=-=-=-=-=
 	
 	
 
@@ -50,6 +91,9 @@ body.addEventListener('click', function (event) {
 
 // =-=-=-=-=-=-=-=-=-=-=-=- </click-events> -=-=-=-=-=-=-=-=-=-=-=-=
 
+const popup = new Popup();
+
+popup.init()
 
 
 // =-=-=-=-=-=-=-=-=-=-=-=- <resize> -=-=-=-=-=-=-=-=-=-=-=-=
@@ -90,7 +134,7 @@ splitText();
 
 // =-=-=-=-=-=-=-=-=-=-=-=- <animation> -=-=-=-=-=-=-=-=-=-=-=-=
 
-animations();
+startAnimation();
 
 // =-=-=-=-=-=-=-=-=-=-=-=- </animation> -=-=-=-=-=-=-=-=-=-=-=-=
 

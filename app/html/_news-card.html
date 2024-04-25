@@ -1,24 +1,22 @@
 <li class="news__card news-card splide__slide">
-	<a href="#" class="news-card__image">
-		<picture>
-			<source srcset="img/news/news-card-thumbnail-@@image.avif" type="image/avif">
-			<source srcset="img/news/news-card-thumbnail-@@image.webp" type="image/webp">
-			<img src="img/news/news-card-thumbnail-@@image.jpg" alt="" width="398" height="398" loading="lazy">
-		</picture>
-	</a>
-	<div class="news-card__tags">
-		<a href="#">
-			Brand
-		</a>
-	</div>
-	<h3 class="news-card__title">
-		<a href="#">
-			@@title
-		</a>
-	</h3>
-	<a href="#" class="news-card__link" aria-label="Learn more">
-		<svg width="32" height="32">
-			<use href="img/sprites.svg#arrow-next"></use>
-		</svg>
+	<a href="single-news.html" class="news-card__inner" aria-label="@@title">
+		<div class="news-card__image">
+			<picture>
+				<source srcset="img/news/news-card-thumbnail-@@image.avif" type="image/avif">
+				<source srcset="img/news/news-card-thumbnail-@@image.webp" type="image/webp">
+				<img src="img/news/news-card-thumbnail-@@image.jpg" alt="" width="398" height="398" loading="lazy">
+			</picture>
+		</div>
+		<div class="news-card__tags">
+			<span>Brand</span>
+		</div>
+		<h3 class="news-card__title">
+			<span>@@title</span>
+		</h3>
+		<span class="news-card__link" aria-hidden="true">
+			<svg width="32" height="32">
+				<use href="img/sprites.svg#arrow-next"></use>
+			</svg>
+		</span>
 	</a>
 </li>

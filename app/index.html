@@ -10,10 +10,19 @@
 			<span>TABASCO</span>
 			<span></span>
 			<span></span>
+			<span></span>
+		</div>
+		<div class="main-background__logo_shadow"></div>
+		<div class="main-background__logo_symbol">
 			<svg width="16" height="22">
 				<use href="img/sprites.svg#main-decor-symbol"></use>
 			</svg>
-			<span></span>
+		</div>
+		<div class="main-background__text">
+			<div class="main-background__text_element"></div>
+			<div class="main-background__text_element"></div>
+			<div class="main-background__text_element"></div>
+			<div class="main-background__text_element"></div>
 		</div>
 	</div>
 	<div class="main-background__line" aria-hidden="true"></div>
@@ -86,13 +95,13 @@
 					</div>
 				</div>
 			</div>
-			<div class="about-us__text">
+			<div class="about-us__text" style="visibility: hidden;">
 				<div class="about-us__text_inner">
 					<div class="split-text"><mark>TABASCO</mark> is committed to accelerating business growth through brand empowerment, performance enhancement, technologies, and cultural influence.</div>
 				</div>
 			</div>
 		</section>
-		<section class="services container">
+		<section class="services container" style="visibility: hidden;" id="services">
 			<h2 class="visually-hidden">Services</h2>
 			<div class="services__col">
 				<div class="services__hero">
@@ -225,10 +234,10 @@
 				</div>
 			</div>
 		</section>
-		<section class="news container">
+		<section class="news container" style="visibility: hidden;" id="news">
 			<div class="news__header">
 				<h2 class="news__title section-name">News</h2>
-				<a href="#" class="news__more button" aria-label="View all">
+				<a href="news.html" class="news__more button" aria-label="View all">
 					<span>View all</span>
 					<svg width="32" height="32">
 						<use href="img/sprites.svg#arrow-next"></use>
@@ -269,6 +278,33 @@
 			</div>
 		</section>
 		<div style="width: 100%; height: 300vh;"></div>
+		<section class="join-us container" style="visibility: hidden;" id="join-us">
+			<div class="join-us__hero">
+				<h2 class="join-us__hero_title section-name">JOIN US</h2>
+				<div class="join-us__hero_text">
+					<div class="split-text">
+						<mark>
+							<svg width="16" height="22">
+								<use href="img/sprites.svg#main-decor-symbol"></use>
+							</svg>
+							<span>We at TABASCO</span>
+						</mark> always welcome new talents and professionals. Our goal is to hire, develop, retain and celebrate team members with diverse backgrounds, perspectives and experiences.
+					</div>
+				</div>
+			</div>
+			<ul class="join-us__list">
+				<li>
+					<span>Art Director</span>
+					<span>Full time / Part time</span>
+					<span><a href="#submit-popup" class="open-popup">Submit your CV</a></span>
+				</li>
+				<li>
+					<span>Art Director</span>
+					<span>Full time / Part time</span>
+					<span><a href="#submit-popup" class="open-popup">Submit your CV</a></span>
+				</li>
+			</ul>
+		</section>
 	</main>
 
 @@include("html/_footer.html")

@@ -1,0 +1,108 @@
+@@include("html/_header.html")
+
+	<main class="main is-hidden">
+		<section class="archive container">
+			<h1 class="archive__title main-title">News</h1>
+			<ul class="archive__list">
+				@@loop("html/_news-card-2.html", [
+					{
+						"image": "1",
+						"title": "Meet new energetic drink Battery, 2023 summer hit",
+					},
+					{
+						"image": "2",
+						"title": "Meet new energetic drink Battery, 2023 summer hit",
+					},
+					{
+						"image": "3",
+						"title": "Gold, Bronze & three short lists at Kyiv International Advertising Festival 2023",
+					},
+					{
+						"image": "4",
+						"title": "Re:Create Ukraine",
+					},
+					{
+						"image": "1",
+						"title": "Re:Create Ukraine",
+					},
+					{
+						"image": "2",
+						"title": "Re:Create Ukraine",
+					},
+				])
+			</ul>
+		</section>
+		<div class="marquee splide">
+			<div class="marquee__track splide__track">
+				<ul class="marquee__list splide__list">
+					<li class="marquee__slide splide__slide">
+						<a href="#contact-us-popup" class="open-popup" aria-label="Contact Us">
+							<span>CONTACT Us</span>
+							<svg width="16" height="22">
+								<use href="img/sprites.svg#main-decor-symbol"></use>
+							</svg>
+						</a>
+					</li>
+					<li class="marquee__slide splide__slide">
+						<a href="#contact-us-popup" class="open-popup" aria-label="Contact Us">
+							<span>CONTACT Us</span>
+							<svg width="16" height="22">
+								<use href="img/sprites.svg#main-decor-symbol"></use>
+							</svg>
+						</a>
+					</li>
+					<li class="marquee__slide splide__slide">
+						<a href="#contact-us-popup" class="open-popup" aria-label="Contact Us">
+							<span>CONTACT Us</span>
+							<svg width="16" height="22">
+								<use href="img/sprites.svg#main-decor-symbol"></use>
+							</svg>
+						</a>
+					</li>
+					<li class="marquee__slide splide__slide">
+						<a href="#contact-us-popup" class="open-popup" aria-label="Contact Us">
+							<span>CONTACT Us</span>
+							<svg width="16" height="22">
+								<use href="img/sprites.svg#main-decor-symbol"></use>
+							</svg>
+						</a>
+					</li>
+					<li class="marquee__slide splide__slide">
+						<a href="#contact-us-popup" class="open-popup" aria-label="Contact Us">
+							<span>CONTACT Us</span>
+							<svg width="16" height="22">
+								<use href="img/sprites.svg#main-decor-symbol"></use>
+							</svg>
+						</a>
+					</li>
+					<li class="marquee__slide splide__slide">
+						<a href="#contact-us-popup" class="open-popup" aria-label="Contact Us">
+							<span>CONTACT Us</span>
+							<svg width="16" height="22">
+								<use href="img/sprites.svg#main-decor-symbol"></use>
+							</svg>
+						</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<section class="mentioned container">
+			<h2 class="mentioned__title section-name">Mentioned in:</h2>
+			<div class="mentioned__slider splide">
+				<div class="mentioned__track splide__track">
+					<ul class="mentioned__list splide__list">
+						<li class="splide__slide">
+							<div class="mentioned__logo">
+								<img src="img/single/single-mentioned-logo-1.svg" width="250" height="83" loading="lazy" alt="">
+							</div>
+							<div class="mentioned__logo">
+								<img src="img/single/single-mentioned-logo-2.svg" width="250" height="83" loading="lazy" alt="">
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</section>
+	</main>
+
+@@include("html/_footer-2.html")

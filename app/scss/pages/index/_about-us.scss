@@ -103,7 +103,7 @@
 	// .about-us__slider
 
 	&__slider {
-		
+		margin-top: 2rem;
 		@include _992 {
 			margin-top: 0;
 			transform: translate(0,3.125rem);
@@ -140,12 +140,12 @@
 			grid-template-columns: 12.5rem auto;
 		}
 
-		opacity: 0; visibility: hidden;
+		/* opacity: 0; visibility: hidden;
 		transition: opacity .5s, visibility .5s;
 
 		&.is-active {
 			opacity: 1; visibility: visible;
-		}
+		} */
 	}
 
 	// .about-us__slide_media
@@ -203,9 +203,14 @@
 			align-items: center;
 		}
 
-		font-size: 2rem;
 		line-height: 110%;
 		text-transform: uppercase;
+
+		font-size: 1.5rem;
+
+		@media (min-width: 375px) {
+			font-size: 1.75rem;
+		}
 
 		.split-text > .word {
 			color: var(--color);

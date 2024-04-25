@@ -46,10 +46,6 @@ $fontSize: var(--logo-size,calc(var(--vw)*14));
 			display: block;
 			color: transparent;
 			width: 100%;
-
-			
-			//padding: 0 0.31006ch;
-			
 		}
 
 		span:nth-child(2) {
@@ -72,8 +68,8 @@ $fontSize: var(--logo-size,calc(var(--vw)*14));
 
 				font-size: $fontSize;
 
-				/* -webkit-font-smoothing: antialiased;
-				-moz-osx-font-smoothing: grayscale; */
+				-webkit-font-smoothing: antialiased;
+				-moz-osx-font-smoothing: grayscale;
 
 				display: block;
 				position: absolute;
@@ -110,8 +106,8 @@ $fontSize: var(--logo-size,calc(var(--vw)*14));
 
 				font-size: $fontSize;
 
-				/* -webkit-font-smoothing: antialiased;
-				-moz-osx-font-smoothing: grayscale; */
+				-webkit-font-smoothing: antialiased;
+				-moz-osx-font-smoothing: grayscale;
 
 				display: block;
 				position: absolute;
@@ -135,8 +131,8 @@ $fontSize: var(--logo-size,calc(var(--vw)*14));
 				font-size: $fontSize;
 				color: var(--text-color);
 
-				/* -webkit-font-smoothing: antialiased;
-				-moz-osx-font-smoothing: grayscale; */
+				-webkit-font-smoothing: antialiased;
+				-moz-osx-font-smoothing: grayscale;
 
 				display: block;
 				position: absolute;
@@ -147,7 +143,7 @@ $fontSize: var(--logo-size,calc(var(--vw)*14));
 			}
 		}
 
-		span:nth-child(5) {
+		span:nth-child(4) {
 			position: absolute;
 			left: 0; bottom: 0;
 			width: 100%; height: 100%;
@@ -170,8 +166,8 @@ $fontSize: var(--logo-size,calc(var(--vw)*14));
 
 				font-size: $fontSize;
 
-				/* -webkit-font-smoothing: antialiased;
-				-moz-osx-font-smoothing: grayscale; */
+				-webkit-font-smoothing: antialiased;
+				-moz-osx-font-smoothing: grayscale;
 
 				display: block;
 				position: absolute;
@@ -179,24 +175,11 @@ $fontSize: var(--logo-size,calc(var(--vw)*14));
 				
 			}
 
-			&::after {
+			/* &::after {
 				content: "";
-				position: absolute;
-				right: 14.65%; top: 50%;
-				width: 0.72ch; height: 0.8ch;
-				transform: translate(0%,-55.8%);
-				@include _550 {
-					right: 15.5%;
-					width: 0.72ch; height: 0.77ch;
-					box-shadow: 0 -0.625rem 1.5625rem -0.3125rem var(--accent);
-				}
+				
 
-				border-radius: 50%;
-				box-shadow: 0 -0.3125rem 0.9375rem -0.3125rem var(--accent);
-
-				opacity: var(--shadow-opacity,0);
-
-			}
+			} */
 		}
 
 		display: grid;
@@ -205,72 +188,67 @@ $fontSize: var(--logo-size,calc(var(--vw)*14));
 			grid-area: 1/1;
 		}
 
-		/* &.is-active-gradient span:nth-child(3) {
-			opacity: 0;
-		}
+		/* svg {
+			
 
-		&.is-active-gradient span:nth-child(2) {
-			opacity: 1;
-		}
-
-		&.background-mode.is-active-gradient span:nth-child(3) {
-			opacity: 1;
-		}
-
-		&.background-mode.is-active-gradient span:nth-child(3)::after {
-			//color: #171717;
-			//opacity: 0.09;
-			opacity: 0.09;
-		}
-
-		&.background-mode.is-active-gradient span:nth-child(3)::before {
-			opacity: 0;
-			color: #FFF;
-		}
-
-		&.background-mode.is-active-gradient span:nth-child(2) {
-			opacity: 0;
-		}
-
-		&.background-mode-2.background-mode.is-active-gradient span:nth-child(3) {
-			opacity: 0;
-			transition: none;
-		}
-
-		&.background-mode-2.background-mode.is-active-gradient span:nth-child(5) {
-			opacity: 1;
 		} */
+	}
 
+	&__logo_symbol {
+		position: absolute;
+		left: 50%; top: calc(51% + var(--height-header)/2);
+		width: calc(var(--logo-size,calc(var(--vw)*14))*1.2); height: auto;
+		transform: translate(-50%,var(--symbol-y,-22.5%)) scale(var(--symbol-scale,1));
+		
+		@include _550 {
+			top: 53%;
+			width: calc(var(--logo-size,calc(var(--vw)*14))*1.09);
+		}
 
-		/* &.is-active-shadow span:nth-child(5)::after {
-			opacity: 1;
+		@include _992 {
+			top: 50%;
+			width: calc(var(--logo-size,calc(var(--vw)*14))*1.1);
+		}
+		/* @include _550 {
+			right: 15.2%;
+			transform: translate(0%,-35%);
 		} */
+		color: #171717;
+		z-index: -1;
 
-		/* &.background-mode-2.background-mode.is-active-gradient span:nth-child(3)::before {
-			opacity: 1;
-			color: #171717;
-			transition: none;
-		} */
-
-		/* &.background-mode-2 svg {
-			opacity: 1;
-		} */
+		display: flex;
+		justify-content: center;
 
 		svg {
-			position: absolute;
-			right: 14.35%; top: 50%;
-			width: 0.75ch; height: 0.75ch;
-			transform: translate(0%,-37%);
-			@include _550 {
-				right: 15.2%;
-				transform: translate(0%,-35%);
-			}
-			color: #171717;
-			z-index: -1;
-
-			opacity: 0;
-
+			width: 100%; height: auto;
 		}
+
+		opacity: 0;
+	}
+
+	&__logo_shadow {
+
+		position: absolute;
+		left: 50%; top: 50%;
+		width: calc(var(--logo-size)*3.9); height: calc(var(--logo-size)*4.2);
+		transform: translate(-52.5%,-24vw);
+		//background: red;
+		
+		@include _550 {
+			top: 52.5%;
+			width: 20.5vw; height: 23vw;
+			transform: translate(-52%,-42%);
+			box-shadow: 0 -2vw 3vw -1vw var(--accent);
+		}
+
+		@include _992 {
+			top: 50%;
+		}
+
+		border-radius: 50%;
+		box-shadow: 0 -10vw 20vw -5vw var(--accent);
+
+		opacity: var(--shadow-opacity,0);
 	}
 
 	// .main-background__line
@@ -282,7 +260,7 @@ $fontSize: var(--logo-size,calc(var(--vw)*14));
 		width: 100vw; height: 2.604167vw;
 		background: var(--gradient);
 		background-size: var(--gradient-size,0) 100%;
-    	background-position: var(--gradient-animating,0) 0;
+		background-position: var(--gradient-animating,0) 0;
         
 
 		//transform: translate3d(0,100%,-0.01px);
@@ -290,7 +268,7 @@ $fontSize: var(--logo-size,calc(var(--vw)*14));
 
 		clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0% 100%);
 
-		@include _550 {
+		@include _992 {
 			top: 100%;
 		}
 
@@ -307,6 +285,161 @@ $fontSize: var(--logo-size,calc(var(--vw)*14));
 				transform: translate3d(0,-100%,0.03px);
 			} */
 		}
+	}
+
+	&__text {
+		position: absolute;
+		inset: 0;
+		width: 100%; height: 100%;
+
+		perspective: 25rem;
+	}
+
+	&__text_block {
+		font-size: 6vw;
+		text-transform: uppercase;
+		color: var(--white);
+		font-weight: 700;
+	}
+
+	#text {
+		position: absolute;
+		visibility: hidden;
+		/* width: 1px; height: 1px;
+		margin: -1px; padding: 0;
+		border: 0;
+		
+		white-space: nowrap;
+		clip-path: inset(100%);
+		clip: rect(0 0 0 0);
+		overflow: hidden; */
+	}
+
+	&__text_element {
+		position: absolute;
+		left: 50%; top: 50%;
+
+		width: 30%; aspect-ratio: 1/1;
+
+		//transform: translate(-50%,-50%);
+		transform: translate(-50%,-50%) scale(var(--scale,0));
+		
+		font-size: 5vw;
+		text-transform: uppercase;
+		color: var(--white);
+		font-weight: 700;
+
+		transform-origin: center;
+
+		visibility: hidden;
+
+		canvas {
+			position: absolute;
+			left: 0; top: 0;
+			width: 100%; height: 100%;
+		}
+
+		&:nth-child(1) > * {
+			animation: rotateAnim 20s linear 0s infinite normal forwards;
+		}
+
+		&:nth-child(2) > * {
+			animation: rotateAnimReverse 23s linear 0s infinite normal forwards;
+		}
+
+		&:nth-child(3) > * {
+			animation: rotateAnim 30s linear 0s infinite normal forwards;
+		}
+
+		&:nth-child(4) > * {
+			animation: rotateAnimReverse 35s linear 0s infinite normal forwards;
+		}
+		
+		/* &.is-active svg {
+			transform: translate3d(-50%,-50%,0.06px) scale(var(--));
+		} */
+
+		/* &:nth-child(1) img, &:nth-child(1) > span, &:nth-child(1) canvas {
+			transform: translate3d(-50%,-50%, 0.06px) scale(var(--scale-1,10));
+			@include _768 {
+				transform: translate3d(-50%,-50%, 0.06px) scale(var(--scale-1,7));
+			}
+		}
+
+		&:nth-child(2) img, &:nth-child(2) > span, &:nth-child(2) canvas {
+			transform: translate3d(-50%,-50%, 0.06px) scale(var(--scale-2,10));
+			@include _768 {
+				transform: translate3d(-50%,-50%, 0.06px) scale(var(--scale-2,7));
+			}
+		}
+
+		&:nth-child(3) img, &:nth-child(3) > span, &:nth-child(3) canvas {
+			transform: translate3d(-50%,-50%, 0.06px) scale(var(--scale-3,10));
+			@include _768 {
+				transform: translate3d(-50%,-50%, 0.06px) scale(var(--scale-3,7));
+			}
+		}
+
+		&:nth-child(4) img, &:nth-child(4) > span, &:nth-child(4) canvas {
+			transform: translate3d(-50%,-50%, 0.06px) scale(var(--scale-4,10));
+			@include _768 {
+				transform: translate3d(-50%,-50%, 0.06px) scale(var(--scale-4,7));
+			}
+		} */
+
+		/* img, canvas, & > span {
+			display: block;
+			position: absolute;
+			left: 50%; top: 50%;
+			transform: translate3d(-50%,-50%, 0.06px);// scale(var(--scale,10));
+			//aspect-ratio: 1/1; height: auto;
+			//width: 32.5%;
+
+			> span {
+				display: block;
+				width: 35vw; height: 35vw;
+			}
+
+			@include _768 {
+				transform: translate3d(-50%,-50%, 0.06px);// scale(var(--scale,7));
+			}
+		} */
+
+		/* svg {
+			position: absolute;
+			inset: 50%;
+			transform: translate3d(-50%,-50%, 0.06px) scale(var(--scale,7));
+			height: auto;
+
+			//transition: transform 1.5s;
+			
+			text {
+				fill: var(--text-color);
+				font-family: var(--main-font);
+				font-size: 92px;
+				font-weight: 700;
+				text-transform: uppercase;
+				letter-spacing: 0.1px;
+			}
+		} */
+	}
+}
+
+@keyframes rotateAnim {
+	from {
+		rotate: 0deg;
+	}
+	to {
+		rotate: 360deg;
+	}
+}
+
+@keyframes rotateAnimReverse {
+	from {
+		rotate: 0deg;
+	}
+	to {
+		rotate: -360deg;
 	}
 }
 

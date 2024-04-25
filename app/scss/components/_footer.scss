@@ -4,11 +4,13 @@
 } */
 .footer {
 
-	opacity: 0; visibility: hidden;
-	transition: opacity .5s, visibility .5s;
+	&.is-fixed {
+		opacity: 0; visibility: hidden;
+		transition: opacity .5s, visibility .5s;
 
-	&.is-visible {
-		opacity: 1; visibility: visible;
+		&.is-visible {
+			opacity: 1; visibility: visible;
+		}
 	}
 
 	flex: 0 0 auto;
@@ -21,27 +23,253 @@
 	
 			z-index: 2;
 		}
-	}
-	
-	@include _768 {
-		padding-left: var(--mobile-container-padding);
+
+		
 	}
 
-	@include _992 {
-		padding-left: 2rem;
+	// .footer__inner
+
+	&__inner {
+		
+		padding-left: var(--mobile-container-padding);
+		padding-right: var(--mobile-container-padding);
+
+		padding-top: 5rem; padding-bottom: 2.5rem;
+	
+		@include _992 {
+			padding-left: 2rem;
+	
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+
+			padding-left: var(--container-padding);
+			padding-right: var(--container-padding);
+
+			padding-top: 5rem; padding-bottom: 5rem;
+		}
+	
+		background: var(--black);
+	}
+
+	&__inner + &__bottom {
+		@include _768 {
+			padding-left: var(--container-padding);
+		}
+	}
+
+	// .footer__about
+
+	&__about {
+		padding-right: 1rem;
+		text-align: center;
+		@include _992 {
+			text-align: start;
+		}
+	}
+
+	// .footer__logo
+
+	&__logo {
+		img {
+			width: 11.5625rem; height: 1.375rem;
+		}
+	}
+
+	// .footer__text
+
+	&__text {
+		padding-top: 1.5rem;
+		
+		@include _992 {
+			padding-top: 3rem;
+			max-width: 18.125rem;
+
+			display: block;
+		}
+
+		font-size: 0.875rem;
+		line-height: 140%;
+		opacity: .5;
+
+		display: inline-block;
+		
+	}
+
+	// .footer__row
+
+	&__row {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 1.5rem 0;
+
+		@include _768 {
+			grid-template-columns: 1fr 1fr 1.5fr;
+		}
+
+		padding-top: 2.5rem;
+
+		@include _992 {
+			padding-top: 0;
+		}
+	}
+
+	// .footer__block
+
+	&__block {
+		@include _768 {
+			max-width: 18.8125rem;
+		}
+
+		&:last-child {
+			justify-self: end;
+			grid-column: 2 span;
+			@include _768 {
+				grid-column: auto;
+			}
+		}
+
+		> span {
+			font-size: 1rem;
+			line-height: 140%;
+			text-transform: uppercase;
+			color: var(--text-color);
+
+			@include _992 {
+				font-size: 1.25rem;
+			}
+
+			opacity: 0.5;
+		}
+		ul {
+			&:not(:first-child) {
+				padding-top: 1rem;
+			}
+
+			li:not(:first-child) {
+				padding-top: 1rem;
+			}
+
+			a {
+
+				display: block;
+				color: var(--text-color);
+				font-size: 1rem;
+				line-height: 140%;
+				text-transform: uppercase;
+
+				@include _992 {
+					font-size: 1.25rem;
+				}
+
+				@media (any-hover: hover) {
+
+					text-decoration: underline;
+					text-underline-offset: 0.5ch;
+					text-decoration-color: transparent;
+
+					transition: color .2s, text-decoration-color .2s;
+
+					&:hover {
+						text-decoration-color: var(--text-color);
+					}
+				
+					&:active {
+						color: var(--accent);
+						text-decoration-color: var(--accent);
+					}
+				}
+			}
+		}
+	}
+
+	// .footer__bottom_row
+
+	&__bottom_row {
+
+		padding-top: 2.5rem;
+
+		@include _992 {
+			grid-column: 2 span;
+			padding-top: 4.25rem;
+		}
+		
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		justify-content: space-between;
+	}
+
+	// .footer__copy
+
+	&__copy {
+		color: var(--text-color);
+		font-size: 0.875rem;
+		line-height: 100%;
+		text-transform: uppercase;
+	}
+
+	// .footer__privacy
+
+	&__privacy {
+		
+		@include _768 {
+			min-width: 18.8125rem;
+		}
 
 		display: flex;
 		flex-wrap: wrap;
+
+		gap: 1rem;
+
+		a {
+			color: var(--text-color);
+			font-size: 0.875rem;
+			line-height: 100%;
+			text-transform: uppercase;
+
+			@media (any-hover: hover) {
+
+				text-decoration: underline;
+				text-underline-offset: 0.5ch;
+				text-decoration-color: transparent;
+				
+				transition: color .15s, text-decoration-color .15s;
+
+				&:hover {
+					text-decoration-color: var(--text-color);
+				}
+			
+				&:active {
+					text-decoration-color: var(--accent);
+					color: var(--accent);
+				}
+			}
+		}
 	}
 
-	background: var(--black);
+	// .footer__bottom
 
-	border-top: 0.0625rem solid var(--white);
+	&__bottom {
+		@include _768 {
+			padding-left: var(--mobile-container-padding);
+		}
+	
+		@include _992 {
+			padding-left: 2rem;
+	
+			display: flex;
+			flex-wrap: wrap;
 
-	display: grid;
-
-	@include _768 {
-		grid-template-columns: auto auto;
+			border-top: var(--border-size) solid #fff;
+		}
+	
+		background: var(--black);
+	
+		display: grid;
+	
+		@include _768 {
+			grid-template-columns: auto auto;
+		}
 	}
 
 	// .footer__social
@@ -178,4 +406,3 @@
 		}
 	}
 }
-

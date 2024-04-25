@@ -1,0 +1,22 @@
+.single-tags {
+
+	padding-top: 2.5rem;
+	@include _992 {
+		padding-top: 5rem;
+	}
+
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+	gap: 0.5rem;
+}
+
+.single-tags + .news {
+	padding-top: 2.5rem;
+	@include _992 {
+		padding-top: 5rem;
+	}
+	
+	min-height: auto;
+}

@@ -90,6 +90,16 @@ body {
 	/* &.is-mobile-menu-active {
 		overflow: hidden;
 	} */
+	--border-size: 0.0625rem;
+
+	@include _992 {
+		--border-size: 0.0938rem;
+	}
+	
+	@media (min-width: 1700px) {
+		--border-size: 0.0625rem;
+	}
+
 	@media (max-width: 991px) {
 		&.disable-scroll {
 			overflow: hidden;
@@ -109,6 +119,7 @@ body {
 
 .main-container {
 	@include _992 {
+		height: 100vh;
 		height: 100svh;
 		overflow-y: auto; overflow-x: hidden;
 	}
@@ -136,14 +147,14 @@ body {
 } */
 
 body.disable-scroll .main-container {
-	overflow-x: hidden; overflow-y: hidden;
+	pointer-events: none;
 }
 
 /* body.disable-scroll .wrapper, body.disable-scroll .header__inner {
 	margin-right: var(--scrollbar-width,0px);
 } */
 
-.image-aspect-ratio {
+.image-aspect-ratio, figure img {
 	width: 100%; height: auto;
 	@supports (aspect-ratio: 1) {
 		aspect-ratio: var(--aspect-ratio);
@@ -169,6 +180,14 @@ section {
 
 	flex: 1 0 auto;
 	position: relative;
+
+	transition: opacity .5s;
+	&.is-hidden {
+		opacity: 0;
+	}
+	&.is-visible {
+		opacity: 1;
+	}
 }
 
 .container {
@@ -176,8 +195,16 @@ section {
 	padding-right: var(--mobile-container-padding);
 
 	@include _992 {
+
 		padding-left: var(--container-padding);
 		padding-right: var(--container-padding);
+
+		@media (min-width: #{$containerMin}rem) {
+			&.is-min {
+				padding-left: max(var(--container-padding), calc(50% - #{math.div($containerMin, 2)}rem));
+				padding-right: max(var(--container-padding), calc(50% - #{math.div($containerMin, 2)}rem));
+			}
+		}
 	}
 	
 	/* @media (min-width: #{$container}px) {

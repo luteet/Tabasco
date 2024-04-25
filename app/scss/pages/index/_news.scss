@@ -10,9 +10,12 @@
 	// .news__header
 
 	&__header {
-		display: flex;
+		display: grid;
+		grid-template-columns: auto auto;
 		align-items: center;
-		justify-content: space-between;
+		/* justify-content: space-between;
+		flex-wrap: wrap; */
+		gap: 1rem;
 	}
 
 	// .news__title
@@ -23,12 +26,16 @@
 	// .news__more
 
 	&__more {
+		justify-self: end;
 	}
 
 	&__slider {
 		margin-top: 1.625rem;
 		width: 100%;
 		
+		@include _992 {
+			padding-bottom: 3.125rem;
+		}
 	}
 
 	&__track {
@@ -49,11 +56,10 @@
 	// .news__card
 
 	&__card {
-		//flex: 0 0 calc(25% - 2.65rem);
-
-		align-self: self-start;
 
 		@include _992 {
+			align-self: self-start;
+
 			&:nth-child(1), &:nth-child(5n) {
 				align-self: self-start;
 			}

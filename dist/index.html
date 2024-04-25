@@ -20,12 +20,12 @@
 						</a>
 					</div>
 					<nav class="header__nav">
-						<div class="header__nav_body">
+						<div class="header__nav_body" data-lenis-prevent>
 							<ul class="header__nav_list">
-								<li><a href="#">Home</a></li>
-								<li><a href="#">Services</a></li>
-								<li><a href="#">News</a></li>
-								<li><a href="#">JOIN US</a></li>
+								<li><a href="index.html">Home</a></li>
+								<li><a href="index.html?target=services">Services</a></li>
+								<li><a href="index.html?target=news">News</a></li>
+								<li><a href="index.html?target=join-us">JOIN US</a></li>
 							</ul>
 							<ul class="header__nav_lang header__lang">
 								<li>
@@ -35,7 +35,7 @@
 									<a href="#">Ua</a>
 								</li>
 							</ul>
-							<a href="#" class="header__button">
+							<a href="#contact-us-popup" class="header__button open-popup">
 								Contact Us
 							</a>
 						</div>
@@ -67,10 +67,19 @@
 					<span>TABASCO</span>
 					<span></span>
 					<span></span>
+					<span></span>
+				</div>
+				<div class="main-background__logo_shadow"></div>
+				<div class="main-background__logo_symbol">
 					<svg width="16" height="22">
 						<use href="img/sprites.svg#main-decor-symbol"></use>
 					</svg>
-					<span></span>
+				</div>
+				<div class="main-background__text">
+					<div class="main-background__text_element"></div>
+					<div class="main-background__text_element"></div>
+					<div class="main-background__text_element"></div>
+					<div class="main-background__text_element"></div>
 				</div>
 			</div>
 			<div class="main-background__line" aria-hidden="true"></div>
@@ -143,13 +152,13 @@
 							</div>
 						</div>
 					</div>
-					<div class="about-us__text">
+					<div class="about-us__text" style="visibility: hidden;">
 						<div class="about-us__text_inner">
 							<div class="split-text"><mark>TABASCO</mark> is committed to accelerating business growth through brand empowerment, performance enhancement, technologies, and cultural influence.</div>
 						</div>
 					</div>
 				</section>
-				<section class="services container">
+				<section class="services container" style="visibility: hidden;" id="services">
 					<h2 class="visually-hidden">Services</h2>
 					<div class="services__col">
 						<div class="services__hero">
@@ -282,10 +291,10 @@
 						</div>
 					</div>
 				</section>
-				<section class="news container">
+				<section class="news container" style="visibility: hidden;" id="news">
 					<div class="news__header">
 						<h2 class="news__title section-name">News</h2>
-						<a href="#" class="news__more button" aria-label="View all">
+						<a href="news.html" class="news__more button" aria-label="View all">
 							<span>View all</span>
 							<svg width="32" height="32">
 								<use href="img/sprites.svg#arrow-next"></use>
@@ -296,147 +305,135 @@
 						<div class="news__track splide__track">
 							<ul class="news__list splide__list">
 								<li class="news__card news-card splide__slide">
-									<a href="#" class="news-card__image">
-										<picture>
-											<source srcset="img/news/news-card-thumbnail-1.avif" type="image/avif">
-											<source srcset="img/news/news-card-thumbnail-1.webp" type="image/webp">
-											<img src="img/news/news-card-thumbnail-1.jpg" alt="" width="398" height="398" loading="lazy">
-										</picture>
-									</a>
-									<div class="news-card__tags">
-										<a href="#">
-											Brand
-										</a>
-									</div>
-									<h3 class="news-card__title">
-										<a href="#">
-											Meet new energetic drink Battery, 2023 summer hit
-										</a>
-									</h3>
-									<a href="#" class="news-card__link" aria-label="Learn more">
-										<svg width="32" height="32">
-											<use href="img/sprites.svg#arrow-next"></use>
-										</svg>
+									<a href="single-news.html" class="news-card__inner" aria-label="Meet new energetic drink Battery, 2023 summer hit">
+										<div class="news-card__image">
+											<picture>
+												<source srcset="img/news/news-card-thumbnail-1.avif" type="image/avif">
+												<source srcset="img/news/news-card-thumbnail-1.webp" type="image/webp">
+												<img src="img/news/news-card-thumbnail-1.jpg" alt="" width="398" height="398" loading="lazy">
+											</picture>
+										</div>
+										<div class="news-card__tags">
+											<span>Brand</span>
+										</div>
+										<h3 class="news-card__title">
+											<span>Meet new energetic drink Battery, 2023 summer hit</span>
+										</h3>
+										<span class="news-card__link" aria-hidden="true">
+											<svg width="32" height="32">
+												<use href="img/sprites.svg#arrow-next"></use>
+											</svg>
+										</span>
 									</a>
 								</li>
 								<li class="news__card news-card splide__slide">
-									<a href="#" class="news-card__image">
-										<picture>
-											<source srcset="img/news/news-card-thumbnail-2.avif" type="image/avif">
-											<source srcset="img/news/news-card-thumbnail-2.webp" type="image/webp">
-											<img src="img/news/news-card-thumbnail-2.jpg" alt="" width="398" height="398" loading="lazy">
-										</picture>
-									</a>
-									<div class="news-card__tags">
-										<a href="#">
-											Brand
-										</a>
-									</div>
-									<h3 class="news-card__title">
-										<a href="#">
-											Meet new energetic drink Battery, 2023 summer hit
-										</a>
-									</h3>
-									<a href="#" class="news-card__link" aria-label="Learn more">
-										<svg width="32" height="32">
-											<use href="img/sprites.svg#arrow-next"></use>
-										</svg>
+									<a href="single-news.html" class="news-card__inner" aria-label="Meet new energetic drink Battery, 2023 summer hit">
+										<div class="news-card__image">
+											<picture>
+												<source srcset="img/news/news-card-thumbnail-2.avif" type="image/avif">
+												<source srcset="img/news/news-card-thumbnail-2.webp" type="image/webp">
+												<img src="img/news/news-card-thumbnail-2.jpg" alt="" width="398" height="398" loading="lazy">
+											</picture>
+										</div>
+										<div class="news-card__tags">
+											<span>Brand</span>
+										</div>
+										<h3 class="news-card__title">
+											<span>Meet new energetic drink Battery, 2023 summer hit</span>
+										</h3>
+										<span class="news-card__link" aria-hidden="true">
+											<svg width="32" height="32">
+												<use href="img/sprites.svg#arrow-next"></use>
+											</svg>
+										</span>
 									</a>
 								</li>
 								<li class="news__card news-card splide__slide">
-									<a href="#" class="news-card__image">
-										<picture>
-											<source srcset="img/news/news-card-thumbnail-3.avif" type="image/avif">
-											<source srcset="img/news/news-card-thumbnail-3.webp" type="image/webp">
-											<img src="img/news/news-card-thumbnail-3.jpg" alt="" width="398" height="398" loading="lazy">
-										</picture>
-									</a>
-									<div class="news-card__tags">
-										<a href="#">
-											Brand
-										</a>
-									</div>
-									<h3 class="news-card__title">
-										<a href="#">
-											Gold, Bronze & three short lists at Kyiv International Advertising Festival 2023
-										</a>
-									</h3>
-									<a href="#" class="news-card__link" aria-label="Learn more">
-										<svg width="32" height="32">
-											<use href="img/sprites.svg#arrow-next"></use>
-										</svg>
+									<a href="single-news.html" class="news-card__inner" aria-label="Gold, Bronze & three short lists at Kyiv International Advertising Festival 2023">
+										<div class="news-card__image">
+											<picture>
+												<source srcset="img/news/news-card-thumbnail-3.avif" type="image/avif">
+												<source srcset="img/news/news-card-thumbnail-3.webp" type="image/webp">
+												<img src="img/news/news-card-thumbnail-3.jpg" alt="" width="398" height="398" loading="lazy">
+											</picture>
+										</div>
+										<div class="news-card__tags">
+											<span>Brand</span>
+										</div>
+										<h3 class="news-card__title">
+											<span>Gold, Bronze & three short lists at Kyiv International Advertising Festival 2023</span>
+										</h3>
+										<span class="news-card__link" aria-hidden="true">
+											<svg width="32" height="32">
+												<use href="img/sprites.svg#arrow-next"></use>
+											</svg>
+										</span>
 									</a>
 								</li>
 								<li class="news__card news-card splide__slide">
-									<a href="#" class="news-card__image">
-										<picture>
-											<source srcset="img/news/news-card-thumbnail-4.avif" type="image/avif">
-											<source srcset="img/news/news-card-thumbnail-4.webp" type="image/webp">
-											<img src="img/news/news-card-thumbnail-4.jpg" alt="" width="398" height="398" loading="lazy">
-										</picture>
-									</a>
-									<div class="news-card__tags">
-										<a href="#">
-											Brand
-										</a>
-									</div>
-									<h3 class="news-card__title">
-										<a href="#">
-											Re:Create Ukraine
-										</a>
-									</h3>
-									<a href="#" class="news-card__link" aria-label="Learn more">
-										<svg width="32" height="32">
-											<use href="img/sprites.svg#arrow-next"></use>
-										</svg>
+									<a href="single-news.html" class="news-card__inner" aria-label="Re:Create Ukraine">
+										<div class="news-card__image">
+											<picture>
+												<source srcset="img/news/news-card-thumbnail-4.avif" type="image/avif">
+												<source srcset="img/news/news-card-thumbnail-4.webp" type="image/webp">
+												<img src="img/news/news-card-thumbnail-4.jpg" alt="" width="398" height="398" loading="lazy">
+											</picture>
+										</div>
+										<div class="news-card__tags">
+											<span>Brand</span>
+										</div>
+										<h3 class="news-card__title">
+											<span>Re:Create Ukraine</span>
+										</h3>
+										<span class="news-card__link" aria-hidden="true">
+											<svg width="32" height="32">
+												<use href="img/sprites.svg#arrow-next"></use>
+											</svg>
+										</span>
 									</a>
 								</li>
 								<li class="news__card news-card splide__slide">
-									<a href="#" class="news-card__image">
-										<picture>
-											<source srcset="img/news/news-card-thumbnail-1.avif" type="image/avif">
-											<source srcset="img/news/news-card-thumbnail-1.webp" type="image/webp">
-											<img src="img/news/news-card-thumbnail-1.jpg" alt="" width="398" height="398" loading="lazy">
-										</picture>
-									</a>
-									<div class="news-card__tags">
-										<a href="#">
-											Brand
-										</a>
-									</div>
-									<h3 class="news-card__title">
-										<a href="#">
-											Re:Create Ukraine
-										</a>
-									</h3>
-									<a href="#" class="news-card__link" aria-label="Learn more">
-										<svg width="32" height="32">
-											<use href="img/sprites.svg#arrow-next"></use>
-										</svg>
+									<a href="single-news.html" class="news-card__inner" aria-label="Re:Create Ukraine">
+										<div class="news-card__image">
+											<picture>
+												<source srcset="img/news/news-card-thumbnail-1.avif" type="image/avif">
+												<source srcset="img/news/news-card-thumbnail-1.webp" type="image/webp">
+												<img src="img/news/news-card-thumbnail-1.jpg" alt="" width="398" height="398" loading="lazy">
+											</picture>
+										</div>
+										<div class="news-card__tags">
+											<span>Brand</span>
+										</div>
+										<h3 class="news-card__title">
+											<span>Re:Create Ukraine</span>
+										</h3>
+										<span class="news-card__link" aria-hidden="true">
+											<svg width="32" height="32">
+												<use href="img/sprites.svg#arrow-next"></use>
+											</svg>
+										</span>
 									</a>
 								</li>
 								<li class="news__card news-card splide__slide">
-									<a href="#" class="news-card__image">
-										<picture>
-											<source srcset="img/news/news-card-thumbnail-2.avif" type="image/avif">
-											<source srcset="img/news/news-card-thumbnail-2.webp" type="image/webp">
-											<img src="img/news/news-card-thumbnail-2.jpg" alt="" width="398" height="398" loading="lazy">
-										</picture>
-									</a>
-									<div class="news-card__tags">
-										<a href="#">
-											Brand
-										</a>
-									</div>
-									<h3 class="news-card__title">
-										<a href="#">
-											Re:Create Ukraine
-										</a>
-									</h3>
-									<a href="#" class="news-card__link" aria-label="Learn more">
-										<svg width="32" height="32">
-											<use href="img/sprites.svg#arrow-next"></use>
-										</svg>
+									<a href="single-news.html" class="news-card__inner" aria-label="Re:Create Ukraine">
+										<div class="news-card__image">
+											<picture>
+												<source srcset="img/news/news-card-thumbnail-2.avif" type="image/avif">
+												<source srcset="img/news/news-card-thumbnail-2.webp" type="image/webp">
+												<img src="img/news/news-card-thumbnail-2.jpg" alt="" width="398" height="398" loading="lazy">
+											</picture>
+										</div>
+										<div class="news-card__tags">
+											<span>Brand</span>
+										</div>
+										<h3 class="news-card__title">
+											<span>Re:Create Ukraine</span>
+										</h3>
+										<span class="news-card__link" aria-hidden="true">
+											<svg width="32" height="32">
+												<use href="img/sprites.svg#arrow-next"></use>
+											</svg>
+										</span>
 									</a>
 								</li>
 							</ul>
@@ -444,25 +441,272 @@
 					</div>
 				</section>
 				<div style="width: 100%; height: 300vh;"></div>
+				<section class="join-us container" style="visibility: hidden;" id="join-us">
+					<div class="join-us__hero">
+						<h2 class="join-us__hero_title section-name">JOIN US</h2>
+						<div class="join-us__hero_text">
+							<div class="split-text">
+								<mark>
+									<svg width="16" height="22">
+										<use href="img/sprites.svg#main-decor-symbol"></use>
+									</svg>
+									<span>We at TABASCO</span>
+								</mark> always welcome new talents and professionals. Our goal is to hire, develop, retain and celebrate team members with diverse backgrounds, perspectives and experiences.
+							</div>
+						</div>
+					</div>
+					<ul class="join-us__list">
+						<li>
+							<span>Art Director</span>
+							<span>Full time / Part time</span>
+							<span><a href="#submit-popup" class="open-popup">Submit your CV</a></span>
+						</li>
+						<li>
+							<span>Art Director</span>
+							<span>Full time / Part time</span>
+							<span><a href="#submit-popup" class="open-popup">Submit your CV</a></span>
+						</li>
+					</ul>
+				</section>
 			</main>
 
 			<footer class="footer is-fixed">
-				<ul class="footer__social">
-					<li><a href="#">Facebook</a></li>
-					<li><a href="#">Instagram</a></li>
-					<li><a href="#">Twitter</a></li>
-					<li><a href="#">Youtube</a></li>
-					<li><a href="#">LinkedIn</a></li>
-				</ul>
-				<button class="footer__back" type="button" aria-label="Back to top">
-					<span>Back to top</span>
-					<span>
-						<svg width="40" height="41">
-							<use href="img/sprites.svg#back-to-top"></use>
-						</svg>
-					</span>
-				</button>
+				<div class="footer__bottom">
+					<ul class="footer__social">
+						<li><a href="#">Facebook</a></li>
+						<li><a href="#">Instagram</a></li>
+						<li><a href="#">Twitter</a></li>
+						<li><a href="#">Youtube</a></li>
+						<li><a href="#">LinkedIn</a></li>
+					</ul>
+					<button class="footer__back" type="button" aria-label="Back to top">
+						<span>Back to top</span>
+						<span>
+							<svg width="40" height="41">
+								<use href="img/sprites.svg#back-to-top"></use>
+							</svg>
+						</span>
+					</button>
+				</div>
 			</footer>
+		</div>
+	</div>
+
+	<div class="side-popup popup" id="submit-popup" style="display: none;">
+		<div class="side-popup__wrapper popup-wrapper">
+			<div class="side-popup__bg popup-bg popup-close"></div>
+			<div class="side-popup__body popup-body">
+				<div class="side-popup__container popup-container" data-lenis-prevent>
+					<div class="side-popup__header">
+						<div class="side-popup__logo">
+							<img src="img/logo-2.svg" width="185" height="22" loading="lazy" alt="">
+						</div>
+						<button type="button" class="side-popup__close-btn popup-close-btn popup-close" title="Close">
+							<span>Close</span>
+							<svg width="24" height="24">
+								<use href="img/sprites.svg#close"></use>
+							</svg>
+						</button>
+					</div>
+					<div class="side-popup__main">
+						<div class="side-popup__content side-popup-content">
+							<div class="side-popup-content__name section-name">JOIN US</div>
+							<div class="side-popup-content__title main-title">
+								Submit <br> your CV
+								<svg width="64" height="64">
+									<use href="img/sprites.svg#checklist"></use>
+								</svg>
+							</div>
+							<div class="side-popup-content__text">
+								<p>
+
+								</p>
+							</div>
+						</div>
+						<div class="side-popup__row">
+							<div class="side-popup__block side-popup-block">
+								<span class="side-popup-block__name section-name">CONTACTS</span>
+								<ul class="side-popup-block__list">
+									<li>
+										<a href="mailto:hr@tabasco.agency">
+											hr@tabasco.agency
+										</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+						<div class="side-popup__block side-popup-block">
+							<span class="side-popup-block__name section-name">SOCIAL</span>
+							<ul class="side-popup-block__alt_list">
+								<li>
+									<a href="#">
+										LinkedIn
+									</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div class="side-popup__footer">
+						<div class="side-popup__decor_slider splide">
+							<div class="splide__track">
+								<ul class="splide__list">
+									<li class="splide__slide">
+										HELLO!
+									</li>
+									<li class="splide__slide">
+										<svg width="24" height="24">
+											<use href="img/sprites.svg#smile-emoji-2"></use>
+										</svg>
+									</li>
+									<li class="splide__slide">
+										ВІТАЄМО!
+									</li>
+									<li class="splide__slide">
+										<svg width="24" height="24">
+											<use href="img/sprites.svg#smile-emoji-1"></use>
+										</svg>
+									</li>
+									<li class="splide__slide">
+										HOLA!
+									</li>
+									<li class="splide__slide">
+										<svg width="24" height="24">
+											<use href="img/sprites.svg#smile-emoji-2"></use>
+										</svg>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="side-popup popup" id="contact-us-popup" style="display: none;">
+		<div class="side-popup__wrapper popup-wrapper">
+			<div class="side-popup__bg popup-bg popup-close"></div>
+			<div class="side-popup__body popup-body">
+				<div class="side-popup__container popup-container" data-lenis-prevent>
+					<div class="side-popup__header">
+						<div class="side-popup__logo">
+							<img src="img/logo-2.svg" width="185" height="22" loading="lazy" alt="">
+						</div>
+						<button type="button" class="side-popup__close-btn popup-close-btn popup-close" title="Close">
+							<span>Close</span>
+							<svg width="24" height="24">
+								<use href="img/sprites.svg#close"></use>
+							</svg>
+						</button>
+					</div>
+					<div class="side-popup__main">
+						<div class="side-popup__content side-popup-content">
+							<div class="side-popup-content__name section-name">Contact US</div>
+							<div class="side-popup-content__title main-title">
+								Lets
+								<svg width="64" height="64">
+									<use href="img/sprites.svg#message"></use>
+								</svg>
+								Talk
+							</div>
+							<div class="side-popup-content__text">
+								<p>
+									If you want to know more about who we are and what we do or are looking for a new agency, then feel free to get in touch with TABASCO using the contact details below:
+								</p>
+							</div>
+						</div>
+						<div class="side-popup__row">
+							<div class="side-popup__block side-popup-block">
+								<span class="side-popup-block__name section-name">CONTACTS</span>
+								<ul class="side-popup-block__list">
+									<li>
+										<a href="mailto:hr@tabasco.agency">
+											hr@tabasco.agency
+										</a>
+									</li>
+									<li>
+										<a href="tel:+380503841217">
+											+380 50 384 12 17
+										</a>
+									</li>
+								</ul>
+							</div>
+							<div class="side-popup__block side-popup-block">
+								<span class="side-popup-block__name section-name">LOCATION</span>
+								<ul class="side-popup-block__list">
+									<li>
+										<a href="#">
+											72 Velyka Vasylkivska Str., 1st entrance, 8th floor03150, Kyiv, Ukraine
+										</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+						<div class="side-popup__block side-popup-block">
+							<span class="side-popup-block__name section-name">SOCIAL</span>
+							<ul class="side-popup-block__alt_list">
+								<li>
+									<a href="#">
+										Facebook
+									</a>
+								</li>
+								<li>
+									<a href="#">
+										Instagram
+									</a>
+								</li>
+								<li>
+									<a href="#">
+										Twitter
+									</a>
+								</li>
+								<li>
+									<a href="#">
+										Youtube
+									</a>
+								</li>
+								<li>
+									<a href="#">
+										LinkedIn
+									</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div class="side-popup__footer">
+						<div class="side-popup__decor_slider splide">
+							<div class="splide__track">
+								<ul class="splide__list">
+									<li class="splide__slide">
+										HELLO!
+									</li>
+									<li class="splide__slide">
+										<svg width="24" height="24">
+											<use href="img/sprites.svg#smile-emoji-2"></use>
+										</svg>
+									</li>
+									<li class="splide__slide">
+										ВІТАЄМО!
+									</li>
+									<li class="splide__slide">
+										<svg width="24" height="24">
+											<use href="img/sprites.svg#smile-emoji-1"></use>
+										</svg>
+									</li>
+									<li class="splide__slide">
+										HOLA!
+									</li>
+									<li class="splide__slide">
+										<svg width="24" height="24">
+											<use href="img/sprites.svg#smile-emoji-2"></use>
+										</svg>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
 

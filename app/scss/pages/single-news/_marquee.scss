@@ -1,0 +1,58 @@
+.marquee {
+
+	padding-top: 6.25rem;
+
+	// .marquee__track
+
+	&__track {
+	}
+
+	// .marquee__list
+
+	&__list {
+	}
+
+	// .marquee__slide
+
+	&__slide {
+		&[aria-hidden="true"] {
+			pointer-events: all;
+		}
+		a {
+			font-size: 8vw;
+			line-height: 110%;
+			text-transform: uppercase;
+
+			display: flex;
+			align-items: center;
+			gap: 4vw;
+
+			z-index: 2;
+
+			color: var(--text-color);
+
+			@include _992 {
+				font-size: 4.5rem;
+				gap: 2rem;
+			}
+
+			@media (any-hover: hover) {
+
+				transition: color .2s;
+
+				&:hover {
+					color: var(--accent);
+				}
+			
+				&:active {
+					color: var(--accent-active);
+				}
+			}
+
+			svg {
+				width: 1.75ch; height: auto;
+				color: var(--accent);
+			}
+		}
+	}
+}

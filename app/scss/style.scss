@@ -5,7 +5,7 @@
 @import 'global';
 @import 'font';
 @import 'form';
-//@import 'popup';
+@import 'popup';
 
 @import 'components/header';
 @import 'components/main-background';
@@ -16,5 +16,14 @@
 @import 'components/services-block';
 @import 'pages/index/news';
 @import 'components/news-card';
+@import 'pages/index/join-us';
+
+@import 'pages/single-news/main';
+@import 'pages/single-news/gallery';
+@import 'pages/single-news/tags';
+@import 'pages/single-news/marquee';
+@import 'pages/single-news/mentioned';
+
+@import 'pages/archive/main';
 
 @import 'components/footer';

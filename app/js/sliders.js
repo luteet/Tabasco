@@ -1,12 +1,14 @@
 export default function sliders() {
+
 	document.querySelectorAll('.about-us__slider').forEach(sliderElement => {
 	
 		const slider = new Splide(sliderElement, {
 	
-			type: "loop",
-			direction: "ttb",
-			perPage: 1,
-			height: "12.5rem",
+			type: "fade",
+			//direction: "ttb",
+			rewind: true,
+			//perPage: 1,
+			//height: "12.5rem",
 
 			arrows: false,
 			pagination: false,
@@ -55,6 +57,7 @@ export default function sliders() {
 		slider.mount(window.splide.Extensions.Intersection);
 	
 	})
+
 	document.querySelectorAll('.news__slider').forEach(sliderElement => {
 	
 		const slider = new Splide(sliderElement, {
@@ -72,10 +75,13 @@ export default function sliders() {
 	
 			breakpoints: {
 				992: {
-					easing: "cubic-bezier(0.25, 1, 0.5, 1)",
+					easing: "ease",
 					speed: 400,
 					perPage: 2,
 					gap: "2rem",
+					padding: {
+						right: "1.25rem"
+					},
 				},
 	
 				550: {
@@ -87,6 +93,123 @@ export default function sliders() {
 		});
 	
 		slider.mount();
+	
+	})
+
+	document.querySelectorAll('.side-popup__decor_slider').forEach(sliderElement => {
+	
+		const slider = new Splide(sliderElement, {
+	
+			type: "loop",
+			gap: "1.5rem",
+			autoWidth: true,
+			arrows: false,
+			pagination: false,
+			drag: false,
+			autoScroll: {
+				speed: 0.8,
+				pauseOnHover: false,
+				pauseOnFocus: false,
+			},
+			
+	
+		});
+	
+		slider.mount(window.splide.Extensions);
+	
+	})
+
+	document.querySelectorAll('.single-gallery').forEach(sliderElement => {
+	
+		const slider = new Splide(sliderElement, {
+	
+			autoWidth: true,
+			arrows: false,
+			pagination: false,
+
+			/* gap: "2.5rem",
+			padding: {
+				left: "5.4375rem",
+				right: "5.4375rem"
+			}, */
+
+			gap: "1rem",
+			padding: {
+				left: "1rem",
+				right: "1rem"
+			},
+
+			mediaQuery: "min",
+	
+			breakpoints: {
+				992: {
+					destroy: true,
+				},
+			}
+	
+		});
+	
+		slider.mount();
+	
+	})
+
+	document.querySelectorAll('.mentioned__slider').forEach(sliderElement => {
+	
+		const slider = new Splide(sliderElement, {
+	
+			perPage: 2,
+			autoWidth: true,
+			//startIndex: 1,
+			
+			arrows: false,
+			pagination: false,
+			focus: "center",
+			gap: "4vw",
+
+			mediaQuery: "min",
+	
+			breakpoints: {
+				768: {
+					destroy: true,
+				},
+	
+				550: {
+					// params
+				}
+			}
+	
+		});
+	
+		slider.mount();
+	
+	})
+
+	document.querySelectorAll('.marquee').forEach(sliderElement => {
+	
+		const slider = new Splide(sliderElement, {
+	
+			type: "loop",
+			gap: "1.5rem",
+			autoWidth: true,
+			arrows: false,
+			pagination: false,
+			drag: false,
+			autoScroll: {
+				speed: 0.8,
+				pauseOnHover: false,
+				pauseOnFocus: false,
+			},
+
+			breakpoints: {
+				992: {
+					gap: "4vw",
+					
+				},
+			}
+	
+		});
+	
+		slider.mount(window.splide.Extensions);
 	
 	})
 }

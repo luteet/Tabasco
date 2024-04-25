@@ -1,0 +1,36 @@
+.archive {
+
+	padding-top: calc(var(--height-header) + 2rem);
+	@include _992 {
+		padding-top: calc(var(--height-header) + 3.5rem);
+	}
+
+	// .archive__title
+
+	&__title {
+	}
+
+	// .archive__list
+
+	&__list {
+		padding-top: 2rem;
+
+		display: grid;
+		gap: 1rem;
+
+		@include _550 {
+			grid-template-columns: repeat(2,1fr);
+		}
+
+		@include _768 {
+			grid-template-columns: repeat(3,1fr);
+		}
+
+		@include _992 {
+			padding-top: 3.5rem;
+
+			grid-template-columns: repeat(4,1fr);
+			gap: 3.5rem;
+		}
+	}
+}

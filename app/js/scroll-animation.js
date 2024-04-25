@@ -18,14 +18,17 @@ export default function scrollAnimation(args={}) {
 	servicesNavTimeline,
 	//servicesBlocksTimeline,
 	aboutUsTextTimeline,
+	joinUsHeroTimeline,
 	lenis = args.lenis ? args.lenis : false;
 	
 	const 
-	footer = document.querySelector(".footer"),
+	header = document.querySelector(".header"), footer = document.querySelector(".footer"),
 	mainBackground = document.querySelector(".main-background"),
 	mainBackgroundLogo = mainBackground.querySelector(".main-background__logo"),
+	mainBackgroundLogoSymbol = mainBackground.querySelector(".main-background__logo_symbol"),
 	mainBackgroundLogoItems = mainBackground.querySelectorAll(".main-background__logo span"),
 	mainBackgroundLine = document.querySelector(".main-background__line"),
+	mainBackgroundTextElements = document.querySelectorAll(".main-background__text_element"),
 	
 	servicesSection = document.querySelector(".services"),
 	servicesCol = document.querySelectorAll(".services__col"),
@@ -33,7 +36,9 @@ export default function scrollAnimation(args={}) {
 	servicesBlocks = document.querySelectorAll(".services__blocks_elements div"),
 	servicesContentBlocks = document.querySelectorAll(".services__block"),
 	
-	newsSection = document.querySelector(".news");
+	newsSection = document.querySelector(".news"),
+	
+	joinUsHero = document.querySelector(".join-us__hero");
 
 	const
 	aboutUsText = document.querySelector(".about-us__text");
@@ -70,11 +75,6 @@ export default function scrollAnimation(args={}) {
 					//markers: true,
 					scrub: true,
 					scroller,
-					onUpdate: (self) => {
-						/* if(self.progress <= 0.1) {
-							mainBackgroundLine.classList.add("is-visible");
-						} */
-					}
 				}
 			});
 
@@ -98,16 +98,12 @@ export default function scrollAnimation(args={}) {
 			mainBackgroundTimeline.to(mainBackgroundLogo, {
 				'--logo-opacity': 0.09,
 				'--gradient-opacity': 0,
-				onStart: () => {
-					
-					//mainBackgroundLine.classList.remove("is-visible");
-					footer.classList.add("is-visible");
-				}
+				onStart: () => footer.classList.add("is-visible")
 			})
 
 			mainBackgroundTimeline.to(mainBackgroundLogo, {
 				scale: window.innerWidth > 550 ? `3` : "8",
-				bottom: `${window.innerHeight/2 - mainBackgroundLogo.offsetHeight/2}px`,
+				bottom: `${window.innerHeight/2 - mainBackgroundLogo.offsetHeight/2 - header.offsetHeight/2}px`,
 				"--x": "0ch",
 				duration: 2,
 			})
@@ -117,7 +113,7 @@ export default function scrollAnimation(args={}) {
 				scrollTrigger: {
 					trigger: ".wrapper",
 					start: `+=${window.innerHeight}px top`,
-					end: `+=${servicesSection.offsetHeight + window.innerHeight*4}`,
+					end: window.innerWidth > 550 ? `+=${servicesSection.offsetHeight + window.innerHeight*4}` : `+=${servicesSection.offsetHeight + window.innerHeight*3}`,
 					scroller,
 					//markers: true,
 					scrub: true,
@@ -125,7 +121,7 @@ export default function scrollAnimation(args={}) {
 			});
 
 			mainBackgroundTimeline2.to(mainBackgroundLogo, {
-				translateX: window.innerWidth > 550 ? `-20.8ch` : `-62.85ch`,
+				translateX: window.innerWidth > 550 ? `-20.8ch` : `-63ch`, // -62.85ch
 				duration: 2,
 			})
 
@@ -133,14 +129,16 @@ export default function scrollAnimation(args={}) {
 			mainBackgroundTimeline3 = gsap.timeline({
 				scrollTrigger: {
 					trigger: ".wrapper",
-					start: `+=${servicesSection.offsetHeight + window.innerHeight*4 + newsSection.offsetHeight} top`,
-					end: `+=${window.innerHeight}`,
+					start: window.innerWidth >= 550 ? `+=${servicesSection.offsetHeight + window.innerHeight*4 + newsSection.offsetHeight} top` : `+=${servicesSection.offsetHeight + window.innerHeight*3.5 + newsSection.offsetHeight} top`,
+					end: window.innerWidth >= 992 ? `+=${window.innerHeight*2.5}` : `+=${window.innerHeight*2.5}`,
 					scrub: true,
 					
 					scroller,
 					onEnter: () => {
-						mainBackgroundLogo.classList.add("background-mode-2");
-						gsap.set(mainBackgroundLogo.querySelector("svg"), {
+						
+						gsap.set(mainBackgroundLogoSymbol, {
+							"--symbol-scale": window.innerWidth > 550 ? 1 : 2.5,
+							"--symbol-y": "-22.5%",
 							opacity: 1,
 							color: "#171717",
 						})
@@ -154,14 +152,16 @@ export default function scrollAnimation(args={}) {
 						})
 					},
 					onLeaveBack: () => {
-						mainBackgroundLogo.classList.remove("background-mode-2");
-						gsap.set(mainBackgroundLogo.querySelector("svg"), {
+						
+						gsap.set(mainBackgroundLogoSymbol, {
 							opacity: 0,
 						})
 						gsap.set(mainBackgroundLogo, {
-							"--shadow-opacity": 0,
 							"--logo-opacity": 0.09,
 							"--last-opacity": 0,
+						})
+						gsap.set(mainBackground, {
+							"--shadow-opacity": 0,
 						})
 						gsap.set(mainBackgroundLogoItems[3], {
 							display: "none",
@@ -179,31 +179,80 @@ export default function scrollAnimation(args={}) {
 				color: "#171717",
 			}) */
 
-			mainBackgroundTimeline3.to(mainBackgroundLogo.querySelector("svg"), {
+			mainBackgroundTimeline3.to(mainBackgroundLogoSymbol, {
 				duration: 1,
-				color: "#DF4D44"
+				color: "#DF4D44",
+				onComplete: () => {
+					gsap.set(mainBackgroundLogoSymbol, {color: "#DF4D44",})
+				}
 			})
-			mainBackgroundTimeline3.to(mainBackgroundLogo, {
+
+			mainBackgroundTimeline3.to(mainBackground, {
 				duration: 1,
 				"--shadow-opacity": 1,
 			},"-=1")
-			mainBackgroundTimeline3.to(mainBackgroundLogo, {
+
+			mainBackgroundTimeline3.to(mainBackground, {
 				duration: 1,
 				delay: 1,
 				"--shadow-opacity": 0,
 			})
+
 			mainBackgroundTimeline3.to(mainBackgroundLogo, {
 				duration: 1,
 				"--logo-opacity": 0,
 				"--last-opacity": 0,
 			},"-=1")
-			mainBackgroundTimeline3.to(mainBackgroundLogo, {
-				scale: 1,
-				left: 0,
-				translateX: "-3.25ch",
-				bottom: `${window.innerHeight/2 - mainBackgroundLogo.offsetHeight/2}px`,
+
+			mainBackgroundTimeline3.to(mainBackgroundLogoSymbol, {
+				"--symbol-scale": 0.5,
+				"--symbol-y": window.innerWidth > 550 ? "-50%" : "-100%",
+				//left: 0,
+				//translateX: "-7.45ch",
+				//bottom: `${window.innerHeight/2 - mainBackgroundLogo.offsetHeight/2.5}px`,
 				duration: 2,
 			},"-=0.5")
+
+			/* mainBackgroundTextElements.forEach(element => {
+				
+			}) */
+			gsap.set(mainBackgroundTextElements, {
+				"--scale": window.innerWidth >= 768 ? 7 : 10,
+			})
+
+			mainBackgroundTimeline3.to(mainBackgroundTextElements[0], {
+				duration: 2,
+				"--scale": 1,
+				onStart: () => {
+					gsap.set(mainBackgroundLogoSymbol, {color: "#DF4D44",})
+					mainBackgroundTextElements.forEach(element => element.style.visibility = "visible")
+				},
+				onReverseComplete: () => {
+					mainBackgroundTextElements.forEach(element => element.style.removeProperty("visibility"));
+				}
+			},"-=1")
+
+			mainBackgroundTimeline3.to(mainBackgroundTextElements[1], {
+				duration: 2,
+				"--scale": 1.5,
+			},"-=1")
+
+			mainBackgroundTimeline3.to(mainBackgroundTextElements[2], {
+				duration: 2,
+				"--scale": 2.1,
+			},"-=1")
+
+			mainBackgroundTimeline3.to(mainBackgroundTextElements[3], {
+				duration: 2,
+				"--scale": 3,
+			},"-=1")
+
+			mainBackgroundTimeline3.to(mainBackground, {
+				opacity: 0,
+				duration: 3,
+				delay: 1,
+				
+			})
 			/* mainBackgroundTimeline2.to(mainBackgroundLogo.querySelector("svg"), {
 				opacity: 1,
 				duration: 1,
@@ -343,6 +392,29 @@ export default function scrollAnimation(args={}) {
 				})
 
 			}
+
+			if(joinUsHeroTimeline) joinUsHeroTimeline.kill();
+			document.documentElement.style.setProperty("--join-us-height", joinUsHero.offsetHeight + 'px');
+			joinUsHeroTimeline = gsap.timeline({
+				scrollTrigger: {
+					trigger: joinUsHero,
+					start: `top ${window.innerHeight / 2 - joinUsHero.offsetHeight / 2}`,
+					end: `+=${window.innerHeight} top`,
+					scroller,
+					pin: true,
+					pinType: "fixed",
+					scrub: true,
+				}
+			})
+
+			gsap.set(joinUsHero.querySelectorAll(".word"), {
+				"--color": "#FFF",
+			})
+
+			joinUsHeroTimeline.to(joinUsHero.querySelectorAll(".word"), {
+				"--color": "#DF4D44",
+				stagger: 1,
+			})
 
 			if(lenis) lenis.resize();
 
